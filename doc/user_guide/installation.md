@@ -12,10 +12,6 @@ This guide provides comprehensive instructions for installing the Hailo Applicat
     - [Available Options](#available-options)
     - [Resource Groups](#resource-groups)
     - [Examples](#examples)
-  - [Raspberry Pi Installation](#raspberry-pi-installation)
-    - [Hardware Setup for RPi](#hardware-setup-for-rpi)
-    - [Software Setup for RPi](#software-setup-for-rpi)
-    - [Verification for RPi](#verification-for-rpi)
   - [Post-Installation Verification](#post-installation-verification)
   - [Uninstallation](#uninstallation)
 
@@ -145,55 +141,6 @@ The downloader automatically organizes resources into appropriate directories un
 
 ---
 
-## Raspberry Pi Installation
-
-These instructions are for setting up a Raspberry Pi 5 with a Hailo AI accelerator.
-
-### Hardware Setup for RPi
-
-1.  **Required Hardware**:
-    *   Raspberry Pi 5 (8GB recommended) with Active Cooler.
-    *   A Hailo accelerator:
-        *   **Raspberry Pi AI Kit**: M.2 HAT + Hailo-8L/Hailo-8 Module.
-        *   **Raspberry Pi AI HAT+**: A board with an integrated Hailo accelerator (13 or 26 TOPs).
-    *   A 27W USB-C Power Supply.
-
-2.  **Assembly**:
-    *   **For AI Kit**: Follow the [Raspberry Pi's official AI Kit Guide](https://www.raspberrypi.com/documentation/accessories/ai-kit.html#ai-kit).
-        *   Ensure a thermal pad is placed between the M.2 module and the HAT.
-        *   Ensure the GPIO header is connected for stable operation.
-    *   **For AI HAT+**: Follow the [Raspberry Pi's official AI HAT+ Guide](https://www.raspberrypi.com/documentation/accessories/ai-hat-plus.html#ai-hat-plus).
-        *   Ensure the GPIO header is connected for stable operation.
-
-### Software Setup for RPi
-
-1.  **Install Raspberry Pi OS**:
-    *   Use the Raspberry Pi Imager to install the latest version of Raspberry Pi OS from [here](https://www.raspberrypi.com/software/).
-
-2.  **Install Hailo Software**:
-    *   The official Raspberry Pi AI stack includes the Hailo firmware and runtime. Follow the [Raspberry Pi's official AI Software Guide](https://www.raspberrypi.com/documentation/computers/ai.html#getting-started).
-
-3.  **Enable PCIe Gen3 for Optimal Performance**:
-    *   This is required for the M.2 HAT to achieve full performance. The AI HAT+ should configure this automatically if the GPIO is connected.
-    *   Open the configuration tool: `sudo raspi-config`
-    *   Go to `6 Advanced Options` -> `A8 PCIe Speed`.
-    *   Choose `Yes` to enable PCIe Gen 3 mode.
-    *   Reboot the Raspberry Pi: `sudo reboot`.
-
-### Verification for RPi
-
-1.  **Check if the Hailo chip is recognized**:
-    ```bash
-    hailortcli fw-control identify
-    ```
-    This should show your board details (e.g., Board Name: Hailo-8). If not, see the troubleshooting section.
-
-2.  **Check GStreamer plugins**:
-    *   Verify `hailotools`: `gst-inspect-1.0 hailotools`
-    *   Verify `hailo` (inference element): `gst-inspect-1.0 hailo`
-    *   If a plugin is not found, you may need to clear the GStreamer cache: `rm ~/.cache/gstreamer-1.0/registry.aarch64.bin` and reboot.
-
----
 
 ## Post-Installation Verification
 
