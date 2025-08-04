@@ -1,16 +1,3 @@
-# Hailo Applications
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/hailo-ai/hailo-apps-infra)
-
-Welcome to the Hailo Applications repository! This project provides a foundational infrastructure, reusable components, and practical examples for building and deploying high-performance AI applications using Hailo hardware accelerators.
-
-It includes everything you need to get started with computer vision pipelines on both x86_64 Ubuntu systems and Raspberry Pi platforms.
-
-- **Ready-to-use AI pipelines** for object detection, pose estimation, and more.
-- **Modular infrastructure** for rapid development and custom applications.
-- **Packaged as a Python library** for easy integration into your own projects.
-
-Visit the [Hailo Official Website](https://hailo.ai/) and [Hailo Community Forum](https://community.hailo.ai/) for more information.
-
 ## Getting Started
 
 
