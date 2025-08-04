@@ -1,5 +1,3 @@
-![Hailo Applications Infrastructure](doc/images/github_applications_infrastructure.png)
-
 # Hailo Applications
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/hailo-ai/hailo-apps-infra)
 
@@ -91,22 +89,3 @@ hailo-seg
 ![Instance Segmentation Example](doc/images/instance_segmentation.gif)
 
 For a complete list of all available applications and their features, please see the [Running Applications Guide](./doc/user_guide/running_applications.md).
-
-## Full Documentation
-
-For detailed guides on installation, usage, and development, please see our complete documentation:
-
-**[➡️ View the Full Documentation](./doc/README.md)**
-
-The documentation includes:
-*   **[User Guide](./doc/user_guide/README.md)**: How to run applications and configure the system.
-*   **[Developer Guide](./doc/developer_guide/README.md)**: How to build your own applications.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for complete details.
-
-## Getting Help
-
-If you run into any issues, the best place to get help is the [Hailo Community Forum](https://community.hailo.ai/). You can search for existing solutions or open a new topic to get help from the community and the Hailo team.
-
