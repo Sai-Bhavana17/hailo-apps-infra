@@ -156,34 +156,6 @@ PY_VER_MAJOR=$(echo "$PYTHON_VERSION" | cut -d. -f1)
 PY_VER_MINOR=$(echo "$PYTHON_VERSION" | cut -d. -f2)
 PY_TAG="cp${PY_VER_MAJOR}${PY_VER_MINOR}-cp${PY_VER_MAJOR}${PY_VER_MINOR}"
 
-# Initialize an array to hold architecture-specific files.
-ARCH_FILES=()
-
-if [[ "$ARCH" == "x86_64" || "$ARCH" == "amd64" ]]; then
-    echo "Configuring file list for AMD64..."
-    # AMD64-specific files:
-    amd64_deb_files=(
-        "hailort_${HAILORT_VERSION}_amd64.deb"
-        "hailo-tappas-core_${TAPPAS_CORE_VERSION}_amd64.deb"
-    )
-    # Python binding wheel for AMD64.
-    amd64_whl="hailort-${HAILORT_VERSION}-${PY_TAG}-linux_x86_64.whl"
-    ARCH_FILES=( "${amd64_deb_files[@]}" "$amd64_whl" )
-elif [[ "$ARCH" == "aarch64" ]]; then
-    echo "Configuring file list for ARM64..."
-    # ARM64-specific files:
-    arm64_deb_files=(
-        "hailort_${HAILORT_VERSION}_arm64.deb"
-        "hailo-tappas-core_${TAPPAS_CORE_VERSION}_arm64.deb"
-    )
-    # Python binding wheel for ARM64.
-    arm64_whl="hailort-${HAILORT_VERSION}-${PY_TAG}-linux_aarch64.whl"
-    ARCH_FILES=( "${arm64_deb_files[@]}" "$arm64_whl" )
-else
-    echo "Unknown or unsupported architecture: $ARCH"
-    exit 1
-fi
-
 # --- Download Phase ---
 
 echo "Downloading common package files..."
